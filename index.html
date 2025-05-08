@@ -56,7 +56,7 @@
             background: #ffffff;
         }
     </style>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LdWiTIrAAAAAPkNKl2venguhorkTxGPAhJJKR9x"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdYwjIrAAAAACPyzN1eRhvUq8x1Pdji7eK2iuhd"></script>
 </head>
 <body class="font-sans antialiased text-gray-800">
     <!-- Навигация -->
@@ -441,7 +441,7 @@
             event.preventDefault();
             const form = event.target;
             grecaptcha.ready(function() {
-                grecaptcha.execute('6LdWiTIrAAAAAPkNKl2venguhorkTxGPAhJJKR9x', {action: 'submit'}).then(function(token) {
+                grecaptcha.execute('6LdYwjIrAAAAACPyzN1eRhvUq8x1Pdji7eK2iuhd', {action: 'submit'}).then(function(token) {
                     form.querySelector('#recaptcha-token').value = token;
                     const data = {
                         name: form.querySelector('#name').value,
@@ -451,7 +451,7 @@
                         agree: form.querySelector('#consent').checked,
                         'recaptcha-token': token
                     };
-                    fetch('https://script.google.com/macros/s/AKfycbxvQLat33v7arony-Oj7mktG1jtUT-oKtJ-v9RUh3uBP_BbSiDXdNJufE6G_TMY_o7Q/exec', {
+                    fetch('https://script.google.com/macros/s/AKfycbxNNH0TO22LXV0DyKJIgvDCT7ph_3KrmO62qDON8UCEjGcBDayI1af8DvtYMyEa1S76/exec', {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: {
