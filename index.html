@@ -1507,7 +1507,7 @@
             event.preventDefault();
             const form = event.target;
             grecaptcha.ready(function() {
-                grecaptcha.execute('66LdYwjIrAAAAACPyzN1eRhvUq8x1Pdji7eK2iuhd', {action: 'submit'}).then(function(token) {
+                grecaptcha.execute('6LdYwjIrAAAAACPyzN1eRhvUq8x1Pdji7eK2iuhd', {action: 'submit'}).then(function(token) {
                     form.querySelector('#recaptcha-token').value = token;
                     const data = {
                         name: form.querySelector('#name').value,
