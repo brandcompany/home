@@ -232,7 +232,7 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LdYwjIrAAAAACPyzN1eRhvUq8x1Pdji7eK2iuhd"></script>
 </head>
 <body class="font-sans antialiased text-gray-800">
-    <!-- Навигация -->
+     <!-- Навигация -->
     <nav class="gradient-bg text-white shadow-lg fixed w-full z-50" id="home">
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
@@ -242,7 +242,7 @@
                         <span>Brand</span>
                     </a>
                 </div>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex space-x-8 desktop-menu">
                     <a href="./" class="menu-link">Главная</a>
                     <a href="#jop" class="menu-link">Работы</a>
                     <a href="#kontakt" class="menu-link">Контакты</a>
@@ -262,6 +262,46 @@
             </div>
         </div>
     </nav>
+    <style>
+        .desktop-menu {
+            display: none; /* Скрываем по умолчанию */
+            color: white !important; /* Явный белый цвет текста */
+            font-family: Arial, sans-serif !important; /* Надежный шрифт */
+            font-size: 16px !important; /* Размер текста */
+            z-index: 1001 !important; /* Высокий z-index для исключения перекрытия */
+            opacity: 1 !important; /* Гарантируем видимость */
+            visibility: visible !important; /* Гарантируем видимость */
+        }
+
+        .desktop-menu a.menu-link {
+            color: white !important; /* Белый цвет для ссылок */
+            text-decoration: none !important; /* Без подчеркивания */
+            position: relative; /* Для эффекта подчеркивания */
+        }
+
+        .desktop-menu a.menu-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .desktop-menu a.menu-link:hover::after {
+            width: 100%;
+        }
+
+        /* Переопределяем Tailwind для десктопа */
+        @media (min-width: 768px) {
+            .desktop-menu {
+                display: flex !important; /* Переопределяем hidden на flex */
+                gap: 2rem; /* Заменяем space-x-8 */
+            }
+        }
+    </style>
 
     <!-- Герой секция -->
     <section class="gradient-bg text-white pt-32 pb-20">
@@ -1173,11 +1213,11 @@
                     <form id="signup-form" class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 md:p-8">
                         <div class="mb-6">
                             <label for="name" class="block mb-2">Ваше имя</label>
-                            <input type="text" id="name" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            <input type="text" id="name" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" required>
                         </div>
                         <div class="mb-6">
                             <label for="site-type" class="block mb-2">Тип сайта</label>
-                            <select id="site-type" name="site-type" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            <select id="site-type" name="site-type" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" required>
                                 <option value="" disabled selected>Выберите тип сайта</option>
                                 <option value="one-page">Одностраничный</option>
                                 <option value="multi-page">Многостраничный</option>
@@ -1187,7 +1227,7 @@
                         </div>
                         <div class="mb-6">
                             <label for="phone" class="block mb-2">Телефон</label>
-                            <input type="tel" id="phone" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
+                            <input type="tel" id="phone" class="w-full bg-white bg-opacity-20 border border-white border-opacity-30 rounded-lg py-3 px-4 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50" pattern="[0-9+\-\s]+" title="Введите только цифры, +, - или пробелы" required>
                         </div>
                         <div class="mb-6">
                             <label for="message" class="block mb-2">Сообщение</label>
@@ -1195,7 +1235,7 @@
                         </div>
                         <div class="mb-6">
                             <label class="flex items-center">
-                                <input type="checkbox" id="consent" class="mr-2 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded">
+                                <input type="checkbox" id="consent" class="mr-2 h-4 w-4 text-purple-600 focus:ring-purple-500 border-gray-300 rounded" required>
                                 <span class="text-sm">Я даю согласие на обработку моих персональных данных в соответствии с <a href="#" class="underline hover:text-purple-300">Политикой конфиденциальности</a></span>
                             </label>
                         </div>
